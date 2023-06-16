@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://ce2j72187hohg"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_g2kle"]
+[ext_resource type="Script" path="res://Environment.gd" id="2_me8cs"]
+[ext_resource type="PackedScene" uid="uid://w6vmjybls3ig" path="res://LevelLoader.tscn" id="2_mteqd"]
+[ext_resource type="PackedScene" uid="uid://c4a3ssxcojy8x" path="res://Player.tscn" id="2_ygid6"]
+[ext_resource type="PackedScene" uid="uid://blfwikrsfmvv3" path="res://MainMenu.tscn" id="5_6u13s"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_g2kle")
+
+[node name="Environment" type="Node2D" parent="."]
+visible = false
+script = ExtResource("2_me8cs")
+
+[node name="Player" parent="Environment" instance=ExtResource("2_ygid6")]
+visible = false
+position = Vector2(364, 377)
+
+[node name="LevelLoader" parent="Environment" instance=ExtResource("2_mteqd")]
+
+[node name="MainMenu" parent="." instance=ExtResource("5_6u13s")]
+
+[connection signal="level_request" from="MainMenu" to="." method="_on_main_menu_level_request"]

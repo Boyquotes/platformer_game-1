@@ -1,0 +1,71 @@
+[gd_scene load_steps=2 format=3 uid="uid://blfwikrsfmvv3"]
+
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_lo3qj"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_lo3qj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.509804, 0.619608, 0.372549, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]TITLE[/center]"
+fit_content = true
+
+[node name="LoadLevelButton" type="Button" parent="ColorRect/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "LOAD LEVEL
+"
+
+[node name="LevelNameField" type="LineEdit" parent="ColorRect/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+placeholder_text = "level name
+"
+alignment = 1
+context_menu_enabled = false
+clear_button_enabled = true
+shortcut_keys_enabled = false
+caret_blink = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="ColorRect/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="ColorRect/HBoxContainer/VBoxContainer/LoadLevelButton" to="." method="_on_load_level_button_pressed"]
+[connection signal="text_submitted" from="ColorRect/HBoxContainer/VBoxContainer/LevelNameField" to="." method="submit"]

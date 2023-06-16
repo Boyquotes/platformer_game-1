@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cefkaerki06qk"]
+
+[ext_resource type="Texture2D" uid="uid://pvbpatgfi3wm" path="res://falling_object.png" id="1_7n00t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8am1y"]
+
+[node name="BasicObject" type="StaticBody2D"]
+position = Vector2(237, 580)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8am1y")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+scale = Vector2(0.0390625, 0.0390625)
+texture = ExtResource("1_7n00t")
